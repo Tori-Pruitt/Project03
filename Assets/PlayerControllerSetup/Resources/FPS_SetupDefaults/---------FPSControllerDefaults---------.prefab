@@ -1040,6 +1040,7 @@ MonoBehaviour:
   _controller: {fileID: 8928686712736272898}
   _speed: 12
   _gravity: -9.81
+  _canJump: 1
   _jumpHeight: 3
   _groundCheck: {fileID: 8928686711949870912}
   _groundDistance: 0.4

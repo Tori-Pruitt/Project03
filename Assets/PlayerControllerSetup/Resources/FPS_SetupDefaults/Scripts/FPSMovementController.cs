@@ -10,6 +10,7 @@ public class FPSMovementController : MonoBehaviour
     public float _gravity = -9.81f;
     Vector3 _velocity;
 
+    [SerializeField] private bool _canJump = true;
     public float _jumpHeight = 1;
 
     public Transform _groundCheck;
@@ -46,10 +47,15 @@ public class FPSMovementController : MonoBehaviour
 
         _controller.Move(move * _speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && _isGrounded)
+        if (_canJump == true)
         {
-            _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+            if (Input.GetButtonDown("Jump") && _isGrounded)
+            {
+                _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+            }
         }
+
+
 
         _velocity.y += _gravity * Time.deltaTime;
         _controller.Move(_velocity * Time.deltaTime);
